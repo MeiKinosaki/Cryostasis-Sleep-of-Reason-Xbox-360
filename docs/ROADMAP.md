@@ -20,9 +20,15 @@
 - [ ] Confirm the GitHub Actions run passes.
 - [ ] Verify file API compatibility and behavior in the actual Xbox 360 runtime.
 
-## v0.4b — renderer prototype
-- Confirm available graphics APIs and runtime libraries first.
-- Draw a simple test scene before attempting original game assets.
+## v0.4b — CPU renderer prototype
+- [x] Add camera-space point projection with a configurable focal length and near plane.
+- [x] Add a fixed diagnostic triangle in camera-space.
+- [x] Add tests for center projection, offset projection, near-plane rejection, invalid parameters, and null output.
+- [x] Add renderer unit tests to the host validation workflow.
+- [ ] Implement and validate a real Xbox 360 graphics API backend.
+- [ ] Render the diagnostic triangle on the target or supported emulator.
+
+The v0.4b code is CPU-side projection math only. It is not a GPU renderer, does not load Cryostasis assets, and does not prove Xenon compilation.
 
 ## Later milestones
 - Controller input and camera test.
