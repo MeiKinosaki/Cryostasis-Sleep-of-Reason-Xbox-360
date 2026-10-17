@@ -1,4 +1,4 @@
-name: Cryostasis360 scaffold validation
+name: Cryostasis360 source validation
 
 on:
   push:
@@ -6,15 +6,19 @@ on:
   workflow_dispatch:
 
 jobs:
-  source-check:
+  host-diagnostic:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Check scaffold files
+      - name: Verify required source files
         run: |
           test -f src/main.c
+          test -f src/platform.c
+          test -f include/cryostasis/platform.h
           test -f Makefile
-          grep -q 'Cryostasis360 v0.1b' src/main.c
-      - name: Host syntax check (not an Xbox build)
-        run: cc -std=c11 -Wall -Wextra -Werror -fsyntax-only src/main.c
+      - name: Compile host diagnostic (not Xbox 360 output)
+        run: |
+          cc -std=c11 -Wall -Wextra -Werror -Iinclude src/main.c src/platform.c -o cryostasis360-host-test
+      - name: Run host diagnostic
+        run: ./cryostasis360-host-test
