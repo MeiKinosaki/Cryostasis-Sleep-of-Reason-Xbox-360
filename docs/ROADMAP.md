@@ -8,14 +8,17 @@
 ## v0.2b — startup diagnostics
 - [x] Add a platform boundary in C.
 - [x] Add a diagnostic-only startup/shutdown path.
-- [ ] Run and inspect the GitHub Actions result.
+- [ ] Inspect the GitHub Actions result.
 - [ ] Verify the actual Free60/libXenon compiler and target runtime.
 - [ ] Record a reproducible Xbox 360 build log.
 
-## v0.3b — file and resource layer
-- Add bounded file reads and resource path abstraction.
-- Add tests for missing, empty, and malformed files.
-- Do not include proprietary game data in this repository.
+## v0.3b — bounded resource file layer
+- [x] Add a bounded binary file-read API.
+- [x] Handle missing files, empty files, invalid arguments, and maximum-size rejection.
+- [x] Add host-side tests for the resource API.
+- [x] Extend the validation workflow to compile and run those tests.
+- [ ] Confirm the GitHub Actions run passes.
+- [ ] Verify file API compatibility and behavior in the actual Xbox 360 runtime.
 
 ## v0.4b — renderer prototype
 - Confirm available graphics APIs and runtime libraries first.
