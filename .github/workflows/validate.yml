@@ -1,0 +1,20 @@
+name: Cryostasis360 scaffold validation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  source-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Check scaffold files
+        run: |
+          test -f src/main.c
+          test -f Makefile
+          grep -q 'Cryostasis360 v0.1b' src/main.c
+      - name: Host syntax check (not an Xbox build)
+        run: cc -std=c11 -Wall -Wextra -Werror -fsyntax-only src/main.c
