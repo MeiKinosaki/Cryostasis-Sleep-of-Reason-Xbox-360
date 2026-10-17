@@ -15,10 +15,16 @@ jobs:
         run: |
           test -f src/main.c
           test -f src/platform.c
+          test -f src/resource.c
           test -f include/cryostasis/platform.h
+          test -f include/cryostasis/resource.h
+          test -f tests/resource_test.c
           test -f Makefile
-      - name: Compile host diagnostic (not Xbox 360 output)
+      - name: Compile and run host diagnostic (not Xbox 360 output)
         run: |
-          cc -std=c11 -Wall -Wextra -Werror -Iinclude src/main.c src/platform.c -o cryostasis360-host-test
-      - name: Run host diagnostic
-        run: ./cryostasis360-host-test
+          cc -std=c11 -Wall -Wextra -Werror -Iinclude src/main.c src/platform.c src/resource.c -o cryostasis360-host-test
+          ./cryostasis360-host-test
+      - name: Compile and run resource tests (not Xbox 360 output)
+        run: |
+          cc -std=c11 -Wall -Wextra -Werror -Iinclude tests/resource_test.c src/resource.c -o cryostasis360-resource-test
+          ./cryostasis360-resource-test
