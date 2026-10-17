@@ -1,9 +1,8 @@
-# Cryostasis360 v0.3b — diagnostic/resource scaffold only.
-# Requires a compatible Free60/libXenon environment for target compilation.
-# This does not build the original game or guarantee XEX packaging.
+# Cryostasis360 v0.4b — CPU renderer prototype only.
+# This is not a GPU renderer and does not produce a verified Xbox 360 executable.
 
 TARGET := cryostasis360.elf
-SOURCES := src/main.c src/platform.c src/resource.c
+SOURCES := src/main.c src/platform.c src/resource.c src/render.c
 OBJECTS := $(SOURCES:.c=.o)
 
 ifeq ($(DEVKITXENON),)
