@@ -1,8 +1,8 @@
-# Cryostasis360 v0.4b — CPU renderer prototype only.
-# This is not a GPU renderer and does not produce a verified Xbox 360 executable.
+# Cryostasis360 v0.5b — host-testable input/camera scaffold.
+# A successful host build is not an Xbox 360 target build.
 
 TARGET := cryostasis360.elf
-SOURCES := src/main.c src/platform.c src/resource.c src/render.c
+SOURCES := src/main.c src/platform.c src/resource.c src/render.c src/input.c src/camera.c
 OBJECTS := $(SOURCES:.c=.o)
 
 ifeq ($(DEVKITXENON),)
@@ -12,7 +12,7 @@ endif
 CC := xenon-gcc
 CFLAGS ?= -O2 -Wall -Wextra
 CFLAGS += -Iinclude
-LDFLAGS ?=
+LDFLAGS ?= -lm
 
 .PHONY: all clean toolchain-check
 all: toolchain-check $(TARGET)
