@@ -1,15 +1,16 @@
 # Cryostasis360 roadmap
 
 ## v0.1b — project foundation
-- [x] Record project goals and honest implementation status.
-- [x] Add a minimal C entry point and preliminary Makefile.
-- [ ] Verify compiler, linker, libraries, and target runtime in a real build environment.
-- [ ] Record a reproducible build log.
+- [x] Project goals and honest implementation status.
+- [x] Minimal C entry point and preliminary Makefile.
+- [x] Source-validation workflow added.
 
-## v0.2b — platform startup
-- Initialize the selected Xbox 360 homebrew runtime.
-- Add diagnostic logging and safe shutdown.
-- Acceptance: compile with the documented toolchain and run the diagnostic program on a supported target/emulator.
+## v0.2b — startup diagnostics
+- [x] Add a platform boundary in C.
+- [x] Add a diagnostic-only startup/shutdown path.
+- [ ] Run and inspect the GitHub Actions result.
+- [ ] Verify the actual Free60/libXenon compiler and target runtime.
+- [ ] Record a reproducible Xbox 360 build log.
 
 ## v0.3b — file and resource layer
 - Add bounded file reads and resource path abstraction.
@@ -26,4 +27,4 @@
 - Renderer features, audio, physics, gameplay integration.
 - Performance profiling and target testing.
 
-A milestone is complete only when its acceptance checks pass. Planned work is not counted as implemented functionality.
+A milestone is complete only when its acceptance checks pass. Host compilation is not an Xbox 360 build, and planned work is not counted as implemented functionality.
