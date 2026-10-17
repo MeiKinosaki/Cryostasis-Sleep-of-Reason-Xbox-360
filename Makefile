@@ -1,9 +1,9 @@
-# Cryostasis360 v0.1b — initial scaffold only.
-# Requires a compatible Free60/libXenon environment.
-# This does not yet build the original game or guarantee XEX packaging.
+# Cryostasis360 v0.2b — diagnostic scaffold only.
+# Requires a compatible Free60/libXenon environment for target compilation.
+# This does not build the original game or guarantee XEX packaging.
 
 TARGET := cryostasis360.elf
-SOURCES := src/main.c
+SOURCES := src/main.c src/platform.c
 OBJECTS := $(SOURCES:.c=.o)
 
 ifeq ($(DEVKITXENON),)
